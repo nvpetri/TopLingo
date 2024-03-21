@@ -1,0 +1,91 @@
+#background-toggle {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    cursor: pointer;
+}
+
+.imagem-botao {
+    width: 8rem;
+    height: 7.5rem;
+    background-image: url('./img/lua.png');
+    background-size: cover;
+}
+
+.imagem-botao-dark {
+    width: 8rem;
+    height: 7.5rem;
+    background-image: url('./img/sol.png');
+    background-size: cover;
+}
+
+.linha {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6.4375rem;
+    background-color: #5B0B9B;
+    z-index: 999;
+}
+
+input[type="text"] {
+    width: 40%;
+    padding: 0.625rem;
+    margin-left: 30%;
+}
+
+h1 {
+    font-family: "Inter", sans-serif;
+    color: #5B0B9B;
+    position: absolute;
+    top: 1%;
+    left: 43%;
+    font-size: 5rem;
+    height: auto;
+}
+
+.baixo {
+    font-family: "Inter", sans-serif;
+    margin-top: 17.8%;
+    margin-left: 45%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 3.125rem;
+}
+
+.text-container {
+    font-family: "Inter", sans-serif;
+    width: 50%;
+    font-size: x-large;
+    margin-left: 25%;
+    border: 0.0625rem solid #ccc;
+    padding: 0.625rem;
+    min-height: 3.125rem;
+    margin-top: 9%;
+    position: relative;
+}
+
+.output-container {
+    font-family: "Inter", sans-serif;
+    font-size: x-large;
+    width: 50%;
+    margin-left: 25%;
+    border: 0.0625rem solid #ccc;
+    padding: 0.625rem;
+    min-height: 3.125rem;
+    margin-top: 16px;
+    position: relative;
+}
+
+.inline-image {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    width: 5%;
+    height: 3.125rem;
+}
