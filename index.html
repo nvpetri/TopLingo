@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="./assets/script.js" defer></script>
     <script src="./assets/traducao.js" defer></script>
+    <script src="./assets/converter.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -21,13 +22,16 @@
         <div class="imagem-botao" id="imagem-botao"></div>
     </div>
 
-    <select id="targetLanguageSelect" class="text-container">
-
-    </select>
-
     <input type="text" class="text-container" placeholder="Olá  mundo!" id="inputText">
+    <button id="startRecording">Iniciar Gravação</button>
+    <button id="stopRecording" disabled>Parar Gravação</button>
 
+    <select id="" class="text-translate"> </select>
     <input type="text" class="output-container" id="outputText" disabled>
+    <select id="targetLanguageSelect" class="text-translate"></select>
+    <button id="convertToSpeech">Converter para Áudio</button>
+
+    <audio id="audioPlayer" controls></audio>
 
     <div class="baixo" id="baixo">
         <p>Nicolas Petri e Leonardo Torquato</p>

@@ -66,8 +66,17 @@ h1 {
     border: 0.0625rem solid #ccc;
     padding: 0.625rem;
     min-height: 3.125rem;
-    margin-top: 9%;
+    margin-top: 19%;
     position: relative;
+}
+
+.text-translate {
+    background-color: #5B0B9B;
+    height: 3.75rem;
+    width: 10rem;
+    color: white;
+    border-radius: 1.625rem;
+    font-weight: bolder;
 }
 
 .output-container {

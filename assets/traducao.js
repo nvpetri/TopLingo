@@ -88,7 +88,7 @@ function fillTargetLanguageSelect(languages) {
 
     const defaultOption = document.createElement('option')
     defaultOption.value = ''
-    defaultOption.textContent = 'Selecione um idioma'
+    defaultOption.textContent = 'Selecione o idioma'
     targetLanguageSelect.appendChild(defaultOption)
 
     for (const languageCode in languages.translation) {
