@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
 #background-toggle {
     position: absolute;
     top: 0.625rem;
@@ -21,18 +27,17 @@
 
 .linha {
     position: fixed;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 6.4375rem;
     background-color: #5B0B9B;
-    z-index: 999;
 }
 
 input[type="text"] {
     width: 40%;
     padding: 0.625rem;
     margin-left: 30%;
+    border-color: #5B0B9B;
+    border-radius: 0.625rem;
 }
 
 h1 {
@@ -47,7 +52,7 @@ h1 {
 
 .baixo {
     font-family: "Inter", sans-serif;
-    margin-top: 17.8%;
+    margin-top: 16%;
     margin-left: 45%;
 }
 

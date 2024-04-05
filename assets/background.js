@@ -10,8 +10,9 @@ function toggleBackground() {
         lua.classList.remove('imagem-botao')
         lua.classList.add('imagem-botao-dark')
         baixo.style.color = 'white'
-        input.style.backgroundColor = 'black'
+        input.style.backgroundColor = '#5B0B9B'
         input.style.color = 'white'
+        input.style.borderColor = 'white'
     } else {
         body.style.backgroundColor = 'white'
         lua.classList.remove('imagem-botao-dark')
@@ -30,22 +31,10 @@ input.addEventListener('input', function() {
 
 
     if (nome == 'leonardo') {
-
-        if (body.style.backgroundColor === 'white') {
-
-            body.style.backgroundColor = 'black'
-            lua.classList.remove('imagem-botao')
-            lua.classList.add('imagem-botao-dark')
-            baixo.style.color = 'white'
-            input.style.backgroundColor = 'black'
-            input.style.color = 'white'
-        }
+        toggleBackground()
     } else if (nome == 'nicolas') {
-        body.style.backgroundColor = 'white'
-        lua.classList.remove('imagem-botao-dark')
-        lua.classList.add('imagem-botao')
-        baixo.style.color = 'black'
-        input.style.backgroundColor = 'white'
-        input.style.color = 'black'
+        toggleBackground()
+    } else if (nome == 'vitor') {
+        alert('500 conto pra tocar o background')
     }
 })

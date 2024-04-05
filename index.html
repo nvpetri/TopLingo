@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./assets/script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./assets/background.js" defer></script>
     <script src="./assets/traducao.js" defer></script>
-    <script src="./assets/converter.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -15,27 +14,30 @@
 </head>
 
 <body>
+    <header>
+        <h1>TopLingo</h1>
+        <div class="linha"></div>
+        <div id="background-toggle" onclick="toggleBackground()">
+            <div class="imagem-botao" id="imagem-botao"></div>
+        </div>
+    </header>
 
-    <h1>TopLingo</h1>
-    <div class="linha"></div>
-    <div id="background-toggle" onclick="toggleBackground()">
-        <div class="imagem-botao" id="imagem-botao"></div>
-    </div>
+    <main>
+        <div class="input">
+            <input type="text" class="text-container" placeholder="TEXTO A SER TRADUZIDO" id="inputText">
+            <select id="lenguageBase" class="text-translate"> </select>
+        </div>
+        <div class="output">
+            <input type="text" class="output-container" id="outputText" placeholder="TRADUÇÃO" disabled>
+            <select id="targetLanguageSelect" class="text-translate"></select>
+        </div>
 
-    <input type="text" class="text-container" placeholder="Olá  mundo!" id="inputText">
-    <button id="startRecording">Iniciar Gravação</button>
-    <button id="stopRecording" disabled>Parar Gravação</button>
-
-    <select id="" class="text-translate"> </select>
-    <input type="text" class="output-container" id="outputText" disabled>
-    <select id="targetLanguageSelect" class="text-translate"></select>
-    <button id="convertToSpeech">Converter para Áudio</button>
-
-    <audio id="audioPlayer" controls></audio>
-
-    <div class="baixo" id="baixo">
-        <p>Nicolas Petri e Leonardo Torquato</p>
-    </div>
+    </main>
+    <footer>
+        <div class="baixo" id="baixo">
+            <p>Nicolas Petri e Leonardo Torquato</p>
+        </div>
+    </footer>
 </body>
 
 </html>

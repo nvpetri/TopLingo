@@ -1,45 +1,20 @@
-const inputText = document.getElementById('inputText')
-const apiKey = '114c18bf687546238e48ed6bfebb5eef'
+const inputText = document.getElementById('inputText');
+const apiKey = '114c18bf687546238e48ed6bfebb5eef';
 
-function getSupportedLanguages() {
-    const endpoint = 'https://api.cognitive.microsofttranslator.com/languages?api-version=3.0'
-
-    fetch(endpoint, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Ocp-Apim-Subscription-Key': apiKey,
-                'Ocp-Apim-Subscription-Region': 'brazilsouth'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao acessar a API da Microsoft Translator Text')
-            }
-            return response.json()
-        })
-        .then(data => {
-            const filteredData = {
-                translation: data.translation ? data.translation : {}
-            }
-            fillTargetLanguageSelect(filteredData)
-        })
-        .catch(error => console.error('Erro ao obter os idiomas suportados:', error))
-
-}
+document.getElementById('lenguageBase').addEventListener('change', function() {
+    var selectedBaseLanguageCode = this.value;
+});
 
 document.getElementById('targetLanguageSelect').addEventListener('change', function() {
-    var selectedLanguageCode = this.value
-    console.log('Código do idioma selecionado:', selectedLanguageCode)
+    var selectedLanguageCode = this.value;
 
     function translateText() {
+        const textToTranslate = inputText.value;
+        const targetLanguage = selectedLanguageCode;
+        const baseLanguage = document.getElementById('lenguageBase').value;
 
-        const textToTranslate = document.getElementById('inputText').value
-        const targetLanguage = selectedLanguageCode
 
-        console.log(targetLanguage)
-
-        const endpoint = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${targetLanguage}`
+        const endpoint = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${baseLanguage}&to=${targetLanguage}`;
 
         fetch(endpoint, {
                 method: 'POST',
@@ -52,52 +27,83 @@ document.getElementById('targetLanguageSelect').addEventListener('change', funct
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Erro ao acessar a API da Microsoft Translator Text')
+                    throw new Error('Erro ao acessar a API da Microsoft Translator Text');
                 }
-                return response.json()
+                return response.json();
             })
             .then(data => {
-                const translatedText = data[0].translations[0].text
-                document.getElementById('outputText').placeholder = translatedText
+                const translatedText = data[0].translations[0].text;
+                document.getElementById('outputText').placeholder = translatedText;
             })
-            .catch(error => console.error('Erro ao traduzir:', error))
-
+            .catch(error => console.error('Erro ao traduzir:', error));
 
         if ('caches' in window) {
             caches.keys().then(function(cacheNames) {
                 cacheNames.forEach(function(cacheName) {
-                    caches.delete(cacheName)
-                })
-            })
+                    caches.delete(cacheName);
+                });
+            });
         }
-
     }
 
     document.getElementById('inputText').addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
-            translateText()
+            translateText();
         }
-    })
-    return selectedLanguageCode
-})
+    });
+});
 
 function fillTargetLanguageSelect(languages) {
-    const targetLanguageSelect = document.getElementById('targetLanguageSelect')
+    const targetLanguageSelect = document.getElementById('targetLanguageSelect');
+    const baseLanguageSelect = document.getElementById('lenguageBase');
 
-    targetLanguageSelect.innerHTML = ''
+    targetLanguageSelect.innerHTML = '';
+    baseLanguageSelect.innerHTML = '';
 
-    const defaultOption = document.createElement('option')
-    defaultOption.value = ''
-    defaultOption.textContent = 'Selecione o idioma'
-    targetLanguageSelect.appendChild(defaultOption)
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Selecione o idioma';
+    targetLanguageSelect.appendChild(defaultOption);
 
     for (const languageCode in languages.translation) {
-        const languageName = languages.translation[languageCode].name
-        const option = document.createElement('option')
-        option.value = languageCode
-        option.textContent = languageName
-        targetLanguageSelect.appendChild(option)
+        const languageName = languages.translation[languageCode].name;
+
+        const optionTarget = document.createElement('option');
+        optionTarget.value = languageCode;
+        optionTarget.textContent = languageName;
+        targetLanguageSelect.appendChild(optionTarget);
+
+        const optionBase = document.createElement('option');
+        optionBase.value = languageCode;
+        optionBase.textContent = languageName;
+        baseLanguageSelect.appendChild(optionBase);
     }
 }
 
-getSupportedLanguages()
+function getSupportedLanguages() {
+    const endpoint = 'https://api.cognitive.microsofttranslator.com/languages?api-version=3.0';
+
+    fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Ocp-Apim-Subscription-Key': apiKey,
+                'Ocp-Apim-Subscription-Region': 'brazilsouth'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao acessar a API da Microsoft Translator Text');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const filteredData = {
+                translation: data.translation ? data.translation : {}
+            };
+            fillTargetLanguageSelect(filteredData);
+        })
+        .catch(error => console.error('Erro ao obter os idiomas suportados:', error));
+}
+
+getSupportedLanguages();
