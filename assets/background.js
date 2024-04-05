@@ -29,7 +29,6 @@ input.addEventListener('input', function() {
 
     let nome = input.value.toLowerCase()
 
-
     if (nome == 'leonardo') {
         toggleBackground()
     } else if (nome == 'nicolas') {

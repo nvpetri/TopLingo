@@ -52,12 +52,12 @@ h1 {
 
 .baixo {
     font-family: "Inter", sans-serif;
-    margin-top: 16%;
+    margin-top: 13%;
     margin-left: 45%;
 }
 
 .container {
-    width: 80%;
+    width: 78%;
     margin: 0 auto;
     text-align: center;
     padding-top: 3.125rem;
@@ -102,4 +102,13 @@ h1 {
     right: 0.625rem;
     width: 5%;
     height: 3.125rem;
+}
+
+.mic {
+    width: 30px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
 }
