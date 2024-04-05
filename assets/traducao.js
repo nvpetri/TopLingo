@@ -136,6 +136,38 @@ document.getElementById('playButton').addEventListener('click', function() {
     speechSynthesis.speak(utterance)
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    const recognition = new webkitSpeechRecognition() || SpeechRecognition()
+
+    recognition.continuous = true
+
+    recognition.onstart = function() {
+
+    }
+
+    recognition.onresult = function(event) {
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript.trim()
+            console.log('Texto reconhecido:', transcript)
+
+            if (transcript.toLowerCase() === 'natália') {
+                inputText.value = transcript
+                recognition.stop()
+                startTranslation()
+                break
+            }
+        }
+    };
+
+    recognition.onerror = function(event) {
+        console.error('Erro ao reconhecer a voz:', event.error)
+    }
+
+    console.log('Solicitando permissão para acessar o microfone...')
+    recognition.start()
+})
+
 voiceInputButton.addEventListener('click', startSpeechRecognition)
 
 getSupportedLanguages()
